@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Результаты поиска</title>
+
+    <style>
+
+        body {
+
+            background-color: crimson; /* Замените на ваш цвет */
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            padding: 20px;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        h1 {
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        ul {
+
+            list-style: none;
+
+            padding: 0;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+        }
+
+
+
+        li {
+
+            margin: 10px;
+
+            padding: 15px;
+
+            border: 2px solid #FFD700; /* Замените на ваш цвет рамки */
+
+            border-radius: 10px;
+
+            width: 300px; /* Увеличьте или уменьшите ширину по желанию */
+
+            overflow: hidden;
+
+        }
+
+
+
+        a {
+
+            color: #FFD700; /* Замените на ваш цвет ссылки */
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            display: block;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+        }
+
+
+
+        a:hover {
+
+            text-decoration: underline;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Результаты божественного поиска для "{{ query }}"</h1>
+
+    <ul>
+
+        {% for result in results %}
+
+            <li><a href="{{ result }}" target="_blank">{{ result }}</a></li>
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>

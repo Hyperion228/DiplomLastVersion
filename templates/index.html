@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поисковик легендарного Павла Галкина</title>
+    <style>
+        body {
+            background-color: crimson;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: white;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .history {
+            margin-top: 20px;
+            color: white;
+        }
+        .user-info {
+            margin-top: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Галактический Поиск</h1>
+    <form id="search-form" action="{{ url_for('search_page') }}" method="post">
+        <input type="text" name="query" placeholder="Введите запрос на русском" required spellcheck="true" lang="ru">
+        <button type="submit">Поиск</button>
+    </form>
+    <div class="history">
+        <h2>История поиска</h2>
+        <ul>
+            {% for item in history %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="user-info">
+        <span>Вы вошли как: {{ username }}</span> | <a href="{{ url_for('logout') }}">Выйти</a>
+    </div>
+</body>
+</html>
